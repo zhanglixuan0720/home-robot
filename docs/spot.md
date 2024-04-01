@@ -5,7 +5,7 @@
 ### Requirements
 
 + Home robot - [Demo branch](https://github.com/facebookresearch/home-robot/tree/demo)
-+ Spot sim2real - [Jay's fork with no_habitat branch](https://github.com/jdvakil/spot-sim2real)
++ Spot sim2real 
 
 ### Steps
 
@@ -50,7 +50,7 @@ Change this env variable to your cuda -- `CUDA_HOME=/usr/local/cuda-<version_tag
 
 ```
 cd src/third_party/spot-sim2real
-git checkout no_habitat
+git checkout main
 ```
 ##### Installing spot sim2real packages
 
