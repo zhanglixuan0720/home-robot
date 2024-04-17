@@ -16,7 +16,7 @@ install_requires = [
     "numpy-quaternion",
     "pybind11-global",
     "sophuspy==0.0.8",
-    "trimesh",
+    "trimesh==3.23.5",
     "pin>=2.6.17",
     "torch_cluster",
     "torch_scatter",
