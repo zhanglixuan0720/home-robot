@@ -342,7 +342,8 @@ class OVMMEvaluator(PPOTrainer):
         import grpc
 
         try:
-            import evaluation_pb2, evaluation_pb2_grpc
+            import evaluation_pb2
+            import evaluation_pb2_grpc
         except ImportError:
             from home_robot_hw.utils.eval_ai import evaluation_pb2, evaluation_pb2_grpc
 
