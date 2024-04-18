@@ -6,10 +6,10 @@ from setuptools import find_packages, setup
 
 install_requires = [
     "numpy<1.24",
-    "scipy",
+    "scipy==1.13.0",
     "hydra-core",
     "yacs",
-    "h5py",
+    "h5py==3.11.0",
     "pybullet",
     "pygifsicle",
     "open3d",
