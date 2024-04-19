@@ -4,6 +4,7 @@ import json
 import logging
 import os
 
+import matplotlib.pyplot as plt
 import numpy as np
 import requests
 from PIL import Image
@@ -50,6 +51,10 @@ class CortexGPT4VAgent(BaseAgent):
             pil_image = self.resize(
                 Image.fromarray(np.array(object_image.image, dtype=np.uint8))
             )
+
+            plt.subplot(1, len(obs.object_images), img_id + 1)
+            plt.imshow(pil_image)
+            plt.axis("off")
             image_bytes = io.BytesIO()
             if debug_path:
                 round_path = os.path.join(debug_path, str(self.current_round))
@@ -98,10 +103,13 @@ class CortexGPT4VAgent(BaseAgent):
             }
         )
 
+        plt.suptitle(self.goal)
+        plt.show()
+
         context_messages.append({"type": "text", "text": f"3. Query: {self.goal}\n"})
         context_messages.append({"type": "text", "text": "4. Answer: "})
         chat_input = {
-            "model": "gpt-4-vision-preview",
+            "model": "gpt-4-turbo",
             "messages": [
                 # {
                 #     "role": "system",

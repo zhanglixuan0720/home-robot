@@ -78,14 +78,14 @@ limited_obs_publish_sleep: 0.5
 # High level stuff: commands to execute 
 # command: "pick up a bottle and put it on the chair"
 # name: "spot"
-exploration_steps: 5 # we can potentially increase it to 150 for sim
+exploration_steps: 10 # we can potentially increase it to 150 for sim
 # object_to_find: "bottle"
 # location_to_place: "chair"
 
 # VLM Query parameters
 sample_strategy: "clip"
 vlm_option: gpt4v
-replanning: False # if replanning is True, the robot agent will memorize the task that is given at the first place
+replanning: True # if replanning is True, the robot agent will memorize the task that is given at the first place
 save_vlm_plan: True
 
 # some parameters in sim

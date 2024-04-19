@@ -12,7 +12,7 @@ OUTPUT: the action plan in your response can only includes the following actions
 3. placeon(img_i): place the object that the robot is currently holding (e.g., img_j) onto the surface depicted in `img_i`; must follow goto(img_j) and pickup(img_j) 
 4. explore(img_i): explore near the object depicited in 'img_i' to gather more information; please use this action if you can't come up with a plan
 
-Actions are seprated by semicolon. If you cannot provide an action plan, please simple output "explore".
+Actions are seprated by semicolon. If you cannot provide an action plan, please simple output "explore" without any explanation.
 
 Example A:
 1. Images: <img_0>A book</img_0>, <img_1>A gray hat</img_1>, <img_2>A mug</img_2>, <img_3>A white coffee table</img_3>, <img_4>A roll of tape</img_4>, <img_5>A phone</img_5> 
@@ -40,7 +40,7 @@ Example D:
 2. Scene descriptions: 
 3. Query: Move cup from chair to sofa  
 4. Answer: explore
-(Explanation: All images provided are useless. No scene descriptions. Simple output explore)
+(Explanation: All images provided are useless. No scene descriptions. Simply output explore)
 
 Your turn:
 1. Images: 

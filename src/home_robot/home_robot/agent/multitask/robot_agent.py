@@ -272,6 +272,12 @@ class RobotAgent:
         # )
         # self.owlv2_threshold = 0.2
 
+    def set_openai_key(self, key):
+        self.openai_key = key
+
+    def set_task(self, task):
+        self.task = task
+
     def get_navigation_space(self) -> ConfigurationSpace:
         """Returns reference to the navigation space."""
         return self.space
@@ -335,8 +341,13 @@ class RobotAgent:
         img_size = 256
         temperature = 0.2
         max_tokens = 50
+        root_dir = (
+            os.environ["HOME_ROBOT_ROOT"] if os.environ["HOME_ROBOT_ROOT"] else ""
+        )
         with open(
-            "src/home_robot/home_robot/agent/multitask/prompt_eplan.txt",
+            os.path.join(
+                root_dir, "src/home_robot/home_robot/agent/multitask/prompt_eplan.txt"
+            ),
             "r",
         ) as f:
             prompt = f.read()
@@ -357,7 +368,11 @@ class RobotAgent:
         return plan
 
     def get_plan_from_vlm(
-        self, current_pose=None, show_plan=False, plan_file="vlm_plan.txt"
+        self,
+        current_pose=None,
+        show_prompts=False,
+        show_plan=False,
+        plan_file="vlm_plan.txt",
     ):
         """This is a connection to a remote thing for getting language commands"""
         from home_robot.utils.rpc import get_output_from_world_representation
@@ -371,7 +386,7 @@ class RobotAgent:
                 # gpt4v agent has replanning capability, so we save the task here and plan multiple times
                 self.task = self.get_command()
             world_representation = self.get_observations(
-                task=self.task, current_pose=current_pose
+                task=self.task, current_pose=current_pose, show_prompts=show_prompts
             )
             output = self.get_output_from_gpt4v(world_representation)
             if show_plan:
@@ -420,7 +435,7 @@ class RobotAgent:
             print(f"Task plan generated from VLMs has been written to {plan_file}")
         return output
 
-    def get_observations(self, task=None, current_pose=None):
+    def get_observations(self, show_prompts=False, task=None, current_pose=None):
         from home_robot.utils.rpc import get_obj_centric_world_representation
 
         if self.plan_with_reachable_instances:
