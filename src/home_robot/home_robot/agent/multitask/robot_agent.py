@@ -1025,8 +1025,11 @@ class RobotAgent:
         reachable_matches = []
         start = self.robot.get_base_pose() if current_pose is None else current_pose
         for i, instance in enumerate(self.voxel_map.get_instances()):
-            res = self.plan_to_instance(instance, start, instance_id=i)
-            self._cached_plans[i] = res
+            if i not in self._cached_plans.keys():
+                res = self.plan_to_instance(instance, start, instance_id=i)
+                self._cached_plans[i] = res
+            else:
+                res = self._cached_plans[i]
             if res.success:
                 reachable_matches.append(instance)
         return reachable_matches
