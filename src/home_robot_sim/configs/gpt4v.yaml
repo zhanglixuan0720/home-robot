@@ -25,7 +25,7 @@ min_pad_obstacles: 1  # Do not pad LESS than this amount, for safety.
 
 remove_visited_from_obstacles: False
 min_depth: 0.0
-max_depth: 10.0
+max_depth: 4.0
 
 min_pixels_for_instance_view: 1000
 
@@ -44,7 +44,7 @@ in_place_rotation_steps: 8
 
 # TAMP parameters
 guarantee_instance_is_reachable: True
-plan_with_reachable_instances: True
+plan_with_reachable_instances: False # disable motion-planning checking to speedup
 plan_with_scene_graph: True
 max_near_distance: 0.3
 
@@ -85,7 +85,7 @@ exploration_steps: 10 # we can potentially increase it to 150 for sim
 # VLM Query parameters
 sample_strategy: "clip"
 vlm_option: gpt4v
-replanning: True # if replanning is True, the robot agent will memorize the task that is given at the first place
+replanning: False # if replanning is True, the robot agent will memorize the task that is given at the first place
 save_vlm_plan: True
 
 # some parameters in sim
