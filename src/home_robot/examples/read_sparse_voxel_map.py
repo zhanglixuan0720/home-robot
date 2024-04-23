@@ -34,7 +34,7 @@ def plan_to_deltas(xyt0, plan):
         xyt0 = xyt1
 
 
-def raw_obs_to_homerobot_obs(obs_history):
+def add_raw_obs_to_voxel_map(voxel_map, obs_history):
     key_obs = []
     num_obs = len(obs_history["rgb"])
 
@@ -50,7 +50,16 @@ def raw_obs_to_homerobot_obs(obs_history):
                 camera_K=obs_history["camera_K"][obs_id].numpy(),
             )
         )
-    return key_obs
+    config, semantic_sensor = create_semantic_sensor()
+    voxel_map.reset()
+    key_obs = key_obs[::4]  # TODO: set frame skip param in config
+    for idx, obs in enumerate(key_obs):
+        # image_array = np.array(obs.rgb, dtype=np.uint8)
+        # image = Image.fromarray(image_array)
+        # image.show()
+        obs = semantic_sensor.predict(obs)
+        voxel_map.add_obs(obs)
+    return voxel_map
 
 
 @click.command()
@@ -127,25 +136,16 @@ def main(
         )
         voxel_map = agent.voxel_map
 
-        # if pkl_not_obs:
-        #     print(
-        #         "Reading from pkl file that doesn't include homerobot observations..."
-        #     )
-        #     obs_history = pickle.load(input_path.open("rb"))
-        #     key_obs = raw_obs_to_homerobot_obs(obs_history)
-        #     config, semantic_sensor = create_semantic_sensor()
-        #     voxel_map.reset()
-        #     key_obs = key_obs[::4]  # TODO: set frame skip param in config
-        #     for idx, obs in enumerate(key_obs):
-        #         # image_array = np.array(obs.rgb, dtype=np.uint8)
-        #         # image = Image.fromarray(image_array)
-        #         # image.show()
-        #         obs = semantic_sensor.predict(obs)
-        #         voxel_map.add_obs(obs)
+        if pkl_not_obs:
+            print(
+                "Reading from pkl file that doesn't include homerobot observations..."
+            )
+            obs_history = pickle.load(input_path.open("rb"))
+            voxel_map = add_raw_obs_to_voxel_map(obs_history, voxel_map)
 
-        # elif not pkl_is_svm:
-        #     print("Reading from pkl file of raw observations...")
-        #     voxel_map.read_from_pickle(input_path, num_frames=frame)
+        elif not pkl_is_svm:
+            print("Reading from pkl file of raw observations...")
+            voxel_map.read_from_pickle(input_path, num_frames=frame)
     else:
         agent = None
         voxel_map = SparseVoxelMap(resolution=voxel_size)
