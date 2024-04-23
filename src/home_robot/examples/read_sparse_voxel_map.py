@@ -34,7 +34,7 @@ def plan_to_deltas(xyt0, plan):
         xyt0 = xyt1
 
 
-def add_raw_obs_to_voxel_map(voxel_map, obs_history):
+def add_raw_obs_to_voxel_map(obs_history, voxel_map):
     key_obs = []
     num_obs = len(obs_history["rgb"])
 
