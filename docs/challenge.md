@@ -3,7 +3,7 @@
 ## 🏠🤖 Challenge  🚀
 The objective of the HomeRobot: OVMM Challenge is to create a platform that enables researchers to develop agents that can navigate unfamiliar environments, manipulate novel objects, and move away from closed object classes towards open-vocabulary natural language. This challenge aims to facilitate cross-cutting research in embodied AI using recent advances in machine learning, computer vision, natural language, and robotics.
 
-Check out the [Neurips 2023 HomeRobot Open-Vocabulary Mobile Manipulation Challenge!](https://aihabitat.org/challenge/2023_homerobot_ovmm/)
+Check out the [CVPR 2024 HomeRobot Open-Vocabulary Mobile Manipulation Challenge!](https://aihabitat.org/challenge/2023_homerobot_ovmm/)
 
 ### Participation Guidelines
 
@@ -150,21 +150,21 @@ Simulation agents will be evaluated on an AWS EC2 p2.xlarge instance which has a
 ```
 # For minival submissions
 # With a public submission, anyone can see your score
-evalai push <image>:<tag> --phase neurips-ovmm-minival-2024-2278
+evalai push <image>:<tag> --phase homerobot-ovmm-minival-2024-2278
 # You can also make a private submission - no one but you and the organizers can see the results
-evalai push <image>:<tag> --phase neurips-ovmm-minival-2024-2278 --private
+evalai push <image>:<tag> --phase homerobot-ovmm-minival-2024-2278 --private
 
 # For standard test submissions
 # With a public submission, anyone can see your score
-evalai push <image>:<tag> --phase neurips-ovmm-test-standard-2024-2278
+evalai push <image>:<tag> --phase homerobot-ovmm-test-standard-2024-2278
 # Make a private submission - no one but you and the organizers can see the result
-evalai push <image>:<tag> --phase neurips-ovmm-test-standard-2024-2278 --private
+evalai push <image>:<tag> --phase homerobot-ovmm-test-standard-2024-2278 --private
 
 # For challenge submissions - YOU ONLY HAVE 5 SUMBMISSIONS EVER!
 # BE VERY CAREFUL ATTEMPTING THIS! Again, you only get five (5) attempts for the whole challenge
-evalai push <image>:<tag> --phase neurips-ovmm-test-challenge-2024-2278
+evalai push <image>:<tag> --phase homerobot-ovmm-test-challenge-2024-2278
 # Alternately, make a private submission 
-evalai push <image>:<tag> --phase neurips-ovmm-test-challenge-2024-2278 --private
+evalai push <image>:<tag> --phase homerobot-ovmm-test-challenge-2024-2278 --private
 ```
 
 ### DD-PPO Training Starter Code
