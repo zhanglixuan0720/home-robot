@@ -20,9 +20,9 @@ Check out the [Neurips 2023 HomeRobot Open-Vocabulary Mobile Manipulation Challe
 When you're ready, 
 follow [these instructions to participate](https://github.com/facebookresearch/home-robot/blob/main/docs/challenge.md).
 
-**Important note for new OVMM challenge participants:** If you are participating in the challenge and starting now, please use the current `main` branch. You can start out by cloning home-robot via:
+**Important note for new OVMM challenge participants:** If you are participating in the challenge and starting now, please use the current `home-robot-ovmm-challenge-2024` tag. You can start out by cloning home-robot via:
 ```
-git clone https://github.com/facebookresearch/home-robot --branch main
+git clone https://github.com/facebookresearch/home-robot --branch home-robot-ovmm-challenge-2024
 ```
 
 ## Core Concepts
