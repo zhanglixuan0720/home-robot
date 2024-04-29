@@ -15,10 +15,10 @@ HomeRobot lets you get started running a range of robotics tasks on a low-cost m
   - Find a receptacle -- a location on which it must place this object
   - Put the object down on the receptacle.
 
-Check out the [Neurips 2023 HomeRobot Open-Vocabulary Mobile Manipulation Challenge!](https://aihabitat.org/challenge/2023_homerobot_ovmm/)
+Check out the [Neurips 2023 HomeRobot Open-Vocabulary Mobile Manipulation Challenge!](https://eval.ai/web/challenges/challenge-page/2278)
 
 When you're ready, 
-follow [these instructions to participate](https://github.com/facebookresearch/home-robot/blob/main/docs/challenge.md).
+follow [these instructions to participate](https://github.com/facebookresearch/home-robot/blob/home-robot-ovmm-challenge-2024/docs/challenge.md).
 
 **Important note for new OVMM challenge participants:** If you are participating in the challenge and starting now, please use the current `home-robot-ovmm-challenge-2024` tag. You can start out by cloning home-robot via:
 ```
