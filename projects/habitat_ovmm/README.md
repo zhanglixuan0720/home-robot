@@ -95,8 +95,8 @@ export HABITAT_SIM_LOG=quiet
 
 set -x
 python -u -m habitat_baselines.run \
-   --exp-config habitat-baselines/habitat_baselines/config/ovmm/<skill_base_config>.yaml \
-   --run-type train benchmark/ovmm=<skill_name> \
+   --config-name=ovmm/<skill_base_config>.yaml \
+   habitat_baselines.evaluate=False benchmark/ovmm=<skill_name> \
    habitat_baselines.checkpoint_folder=data/new_checkpoints/ovmm/<skill_name>
 ```
 Here `<skill_name>` should be one of `gaze`, `place`, `nav_to_obj` or `nav_to_rec`, <skill_base_config> should be `rl_cont_skill` for `gaze`/`place` and `rl_discrete_skill` for `nav_to_obj`/`nav_to_rec`
@@ -121,8 +121,8 @@ export MAGNUM_LOG=quiet
 export HABITAT_SIM_LOG=quiet
 set -x
 python -u -m habitat_baselines.run \
-   --exp-config habitat-baselines/habitat_baselines/config/ovmm/<skill_base_config>.yaml \
-   --run-type train benchmark/ovmm=<skill_name> \
+   --config-name=ovmm/<skill_base_config>.yaml \
+   habitat_baselines.evaluate=False benchmark/ovmm=<skill_name> \
    habitat_baselines.checkpoint_folder=data/new_checkpoints/ovmm/<skill_name>
 ```
 
