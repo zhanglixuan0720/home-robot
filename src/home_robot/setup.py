@@ -5,6 +5,7 @@
 from setuptools import find_packages, setup
 
 install_requires = [
+    "mkl==2024.0",
     "numpy<1.24",
     "scipy==1.13.0",
     "hydra-core",
