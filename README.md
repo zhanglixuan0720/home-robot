@@ -15,7 +15,7 @@ HomeRobot lets you get started running a range of robotics tasks on a low-cost m
   - Find a receptacle -- a location on which it must place this object
   - Put the object down on the receptacle.
 
-Check out the [Neurips 2023 HomeRobot Open-Vocabulary Mobile Manipulation Challenge!](https://eval.ai/web/challenges/challenge-page/2278)
+Check out the [CVPR 2024 HomeRobot Open-Vocabulary Mobile Manipulation Challenge!](https://eval.ai/web/challenges/challenge-page/2278)
 
 When you're ready, 
 follow [these instructions to participate](https://github.com/facebookresearch/home-robot/blob/home-robot-ovmm-challenge-2024/docs/challenge.md).
